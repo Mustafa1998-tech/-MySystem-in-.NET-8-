@@ -1,0 +1,41 @@
+2025-11-17 20:59:46.549 +03:00 [INF] User profile is available. Using 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-17 20:59:46.670 +03:00 [INF] Creating key {238401ae-3317-4f2a-aea5-445680b65519} with creation date 2025-11-17 17:59:46Z, activation date 2025-11-19 06:13:16Z, and expiration date 2026-02-15 17:59:46Z.
+2025-11-17 20:59:46.689 +03:00 [INF] Writing data to file 'C:\Users\ahmed\AppData\Local\ASP.NET\DataProtection-Keys\key-238401ae-3317-4f2a-aea5-445680b65519.xml'.
+2025-11-17 20:59:46.885 +03:00 [INF] Now listening on: http://localhost:5002
+2025-11-17 20:59:46.888 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-17 20:59:46.889 +03:00 [INF] Hosting environment: Development
+2025-11-17 20:59:46.889 +03:00 [INF] Content root path: C:\Users\ahmed\Desktop\My System in .NET\MySystem
+2025-11-17 21:03:22.917 +03:00 [INF] Executed DbCommand (337ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [MySystemDb];
+2025-11-17 21:03:23.090 +03:00 [INF] Executed DbCommand (134ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [MySystemDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-11-17 21:03:23.114 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 21:03:23.197 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2025-11-17 21:03:23.200 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-17 21:03:23.219 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-17 21:03:23.233 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-17 21:03:23.251 +03:00 [INF] Applying migration '20251117175844_InitialCreate'.
+2025-11-17 21:03:23.280 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2025-11-17 21:03:23.285 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20251117175844_InitialCreate', N'8.0.11');
