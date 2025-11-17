@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  mysystem:
+    build: .
+    container_name: mysystem-app
+    ports:
+      - "8080:80"
+      - "8443:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    networks:
+      - mysystem-network
+
+  # Add MongoDB service if needed
+  mongodb:
+    image: mongo:latest
+    container_name: mysystem-mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password123
+    volumes:
+      - mongodb_data:/data/db
+    restart: unless-stopped
+    networks:
+      - mysystem-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  mysystem-network:
+    driver: bridge
