@@ -55,9 +55,7 @@ jobs:
         
     - name: Install DevSkim
       run: |
-        wget https://github.com/microsoft/DevSkim/releases/download/v1.0.9/DevSkim-linux-x64.tar.gz
-        tar -xzf DevSkim-linux-x64.tar.gz
-        sudo mv DevSkim /usr/local/bin/
+        dotnet tool install --global Microsoft.DevSkim
         
     - name: Run security scan
       run: |
