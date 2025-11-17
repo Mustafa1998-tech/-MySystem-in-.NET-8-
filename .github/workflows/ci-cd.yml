@@ -63,7 +63,7 @@ jobs:
         devskim analyze . --format json --output-file security-report.json || true
         
     - name: Upload security report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: security-report
         path: security-report.json
@@ -75,7 +75,7 @@ jobs:
         cat vulnerable-packages.txt || echo "No vulnerable packages found"
         
     - name: Upload vulnerable packages report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: vulnerable-packages
         path: vulnerable-packages.txt
@@ -100,7 +100,7 @@ jobs:
         cat outdated-packages.txt || echo "No outdated packages found"
         
     - name: Upload outdated packages report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: outdated-packages
         path: outdated-packages.txt
